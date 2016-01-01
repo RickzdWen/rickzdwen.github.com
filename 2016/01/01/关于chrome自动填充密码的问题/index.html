@@ -4,35 +4,30 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>参加第10届D2前端技术大会杂记 | ZDJS</title>
+    <title>关于chrome自动填充密码的问题 | ZDJS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="zdwen">
     
 
     
-    <meta name="description" content="上周末专程飞了一趟杭州，参加阿里主办的D2前端技术大会，第一次到杭州，第一次参加D2，还是有些收获，总的来说可以概括成这么几点：
-
-前端技术发展非常迅猛，并且新东西很快能被应用到实际项目中去。
-前端圈异常活跃，这也是因为前端技术发展太快，不融入交流的前端开发者很容易跟不上时代的发展。
-nodejs的热度持续升温，js成为后端主流开发语言可以说已是不争的事实，并且我认为其前后端通杀的巨大优势会令其有">
+    <meta name="description" content="问题当我们在使用Chrome浏览器提交了登录表单后，经常会遇到浏览器的贴心提示：如果我们点击保存密码，那么chrome会为我们记住登录的用户名和密码，下次再次登录这个网站时浏览器就自动帮我们填上了：很方便有木有！但是，当我们再次新注册一个用户的时候，你可能会发现这样的情况：这是怎么回事？在登录表单记住的用户名密码怎么会自动填充到了注册表单里面，并且我检查了下这两个表单里的字段名都是不同的，怎么就给">
 <meta property="og:type" content="article">
-<meta property="og:title" content="参加第10届D2前端技术大会杂记">
-<meta property="og:url" content="http://zdwen.com/2015/12/22/参加第10届D2前端技术大会杂记/index.html">
+<meta property="og:title" content="关于chrome自动填充密码的问题">
+<meta property="og:url" content="http://zdwen.com/2016/01/01/关于chrome自动填充密码的问题/index.html">
 <meta property="og:site_name" content="ZDJS">
-<meta property="og:description" content="上周末专程飞了一趟杭州，参加阿里主办的D2前端技术大会，第一次到杭州，第一次参加D2，还是有些收获，总的来说可以概括成这么几点：
-
-前端技术发展非常迅猛，并且新东西很快能被应用到实际项目中去。
-前端圈异常活跃，这也是因为前端技术发展太快，不融入交流的前端开发者很容易跟不上时代的发展。
-nodejs的热度持续升温，js成为后端主流开发语言可以说已是不争的事实，并且我认为其前后端通杀的巨大优势会令其有">
-<meta property="og:updated_time" content="2015-12-23T17:30:16.030Z">
+<meta property="og:description" content="问题当我们在使用Chrome浏览器提交了登录表单后，经常会遇到浏览器的贴心提示：如果我们点击保存密码，那么chrome会为我们记住登录的用户名和密码，下次再次登录这个网站时浏览器就自动帮我们填上了：很方便有木有！但是，当我们再次新注册一个用户的时候，你可能会发现这样的情况：这是怎么回事？在登录表单记住的用户名密码怎么会自动填充到了注册表单里面，并且我检查了下这两个表单里的字段名都是不同的，怎么就给">
+<meta property="og:image" content="http://zdwen.com/images/20160101/login.png">
+<meta property="og:image" content="http://zdwen.com/images/20160101/rember.png">
+<meta property="og:image" content="http://zdwen.com/images/20160101/rlogin.png">
+<meta property="og:image" content="http://zdwen.com/images/20160101/register.png">
+<meta property="og:image" content="http://zdwen.com/images/20160101/pwdfirst.png">
+<meta property="og:image" content="http://zdwen.com/images/20160101/aregister.png">
+<meta property="og:image" content="http://zdwen.com/images/20160101/nregister.png">
+<meta property="og:updated_time" content="2016-01-01T05:29:12.013Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="参加第10届D2前端技术大会杂记">
-<meta name="twitter:description" content="上周末专程飞了一趟杭州，参加阿里主办的D2前端技术大会，第一次到杭州，第一次参加D2，还是有些收获，总的来说可以概括成这么几点：
-
-前端技术发展非常迅猛，并且新东西很快能被应用到实际项目中去。
-前端圈异常活跃，这也是因为前端技术发展太快，不融入交流的前端开发者很容易跟不上时代的发展。
-nodejs的热度持续升温，js成为后端主流开发语言可以说已是不争的事实，并且我认为其前后端通杀的巨大优势会令其有">
+<meta name="twitter:title" content="关于chrome自动填充密码的问题">
+<meta name="twitter:description" content="问题当我们在使用Chrome浏览器提交了登录表单后，经常会遇到浏览器的贴心提示：如果我们点击保存密码，那么chrome会为我们记住登录的用户名和密码，下次再次登录这个网站时浏览器就自动帮我们填上了：很方便有木有！但是，当我们再次新注册一个用户的时候，你可能会发现这样的情况：这是怎么回事？在登录表单记住的用户名密码怎么会自动填充到了注册表单里面，并且我检查了下这两个表单里的字段名都是不同的，怎么就给">
 <link rel="publisher" href="106484610760300962322">
 
     
@@ -92,45 +87,46 @@ nodejs的热度持续升温，js成为后端主流开发语言可以说已是不
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/12/22/参加第10届D2前端技术大会杂记/" title="参加第10届D2前端技术大会杂记" itemprop="url">参加第10届D2前端技术大会杂记</a>
+      <a href="/2016/01/01/关于chrome自动填充密码的问题/" title="关于chrome自动填充密码的问题" itemprop="url">关于chrome自动填充密码的问题</a>
   </h1>
   <p class="article-author">By
        
 		<a href="https://plus.google.com/106484610760300962322?rel=author" title="zdwen" target="_blank" itemprop="author">zdwen</a>
 		
   <p class="article-time">
-    <time datetime="2015-12-22T15:42:32.000Z" itemprop="datePublished"> 发表于 2015-12-22</time>
+    <time datetime="2016-01-01T02:21:16.000Z" itemprop="datePublished"> 发表于 2016-01-01</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
-		<p>上周末专程飞了一趟杭州，参加阿里主办的D2前端技术大会，第一次到杭州，第一次参加D2，还是有些收获，总的来说可以概括成这么几点：</p>
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u95EE_u9898"><span class="toc-number">1.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5206_u6790"><span class="toc-number">2.</span> <span class="toc-text">分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u89E3_u51B3"><span class="toc-number">3.</span> <span class="toc-text">解决</span></a></li></ol>
+		
+		</div>
+		
+		<h3 id="u95EE_u9898"><a href="#u95EE_u9898" class="headerlink" title="问题"></a>问题</h3><p>当我们在使用Chrome浏览器提交了登录表单后，经常会遇到浏览器的贴心提示：<br><img src="/images/20160101/login.png" alt="登录表单" title="登录表单"><br><img src="/images/20160101/rember.png" alt="记住密码提示" title="记住密码提示"><br>如果我们点击保存密码，那么chrome会为我们记住登录的用户名和密码，下次再次登录这个网站时浏览器就自动帮我们填上了：<br><img src="/images/20160101/rlogin.png" alt="再次登录" title="再次登录"><br>很方便有木有！但是，当我们<strong>再次新注册一个用户</strong>的时候，你可能会发现这样的情况：<br><img src="/images/20160101/register.png" alt="注册表单" title="注册表单"><br>这是怎么回事？<strong>在登录表单记住的用户名密码怎么会自动填充到了注册表单里面</strong>，并且我检查了下这两个表单里的字段名都是不同的，怎么就给自动填充上了呢？很明显，是chrome的自动填充逻辑导致的。</p>
+<h3 id="u5206_u6790"><a href="#u5206_u6790" class="headerlink" title="分析"></a>分析</h3><p>我曾经一度认为，浏览器的记住密码功能同时会记住用户名输入项和密码输入项的名称，目前看来并没有。于是我想，记住密码功能必然跟密码项有关，我们试着调整下注册表单里的密码输入项：<br><img src="/images/20160101/pwdfirst.png" alt="密码项提到最前" title="密码项提到最前"><br>可以看到，当我们把密码项提到表单最前面时，自动填充的情况没有发生。OK，我们继续做下试验：<br><img src="/images/20160101/aregister.png" alt="密码项移到后面" title="密码项移到后面"><br>可以看到，当把密码项移到第三的位置时，自动填充发生了，并且密码项的前一项被自动填上了登录时的用户名。<strong>可见chrome的自动密码填充逻辑是非常简单的，就是找到表单内的密码项及前一个输入项，如果有，那么就分别填入之前记住的密码和用户名（当然，前提是在同一个域名下的）。</strong><br>我们可以继续多做一些实验，探究下chrome的自动填充机制，以下是我尝试的几种情况：</p>
 <ul>
-<li><strong>前端技术发展非常迅猛，并且新东西很快能被应用到实际项目中去。</strong></li>
-<li><strong>前端圈异常活跃，这也是因为前端技术发展太快，不融入交流的前端开发者很容易跟不上时代的发展。</strong></li>
-<li><strong>nodejs的热度持续升温，js成为后端主流开发语言可以说已是不争的事实，并且我认为其前后端通杀的巨大优势会令其有很强的生命力。</strong></li>
-<li><strong>React开始展露头角。</strong></li>
-<li><strong>组件化是不变的话题，不管采用React还是自己的开发框架，封装组件都是必须做的事情。</strong></li>
-<li><strong>数据可视化是个非常有意思的方向，在大数据时代，这是让普通大众直观理解海量数据的方式，也是可视化工程师的使命。</strong></li>
-<li><strong>还是深圳的空气质量好。</strong></li>
+<li>不放password input ： 不会有自动填充</li>
+<li>把password input放到表单第一个位置： 不会有自动填充</li>
+<li>把password input放到表单后面的位置： 密码项及其前一个输入项被自动填充密码和用户名</li>
+<li>password input前放一个hidden input： hidden input被忽略，密码项及其前一个非hidden输入项被自动填充</li>
+<li>password input前放一个display:none的input： 密码项及隐藏的input被自动填充</li>
+<li>表单内多放一个password input： 自动填充不会发生</li>
 </ul>
-<p>说下参加这次会议的情况吧，分享的主题很多，一般是有3场是同步进行的，大家挑自己感兴趣的话题去听，我第一场在白马山庄听了百度工程师如何用web做原生APP体验的blendui，先是介绍了直接webview展示html页面的问题（主要就是体验问题，降低了用户的转化率），然后介绍了一些尝试过的方法，比如部分用原生部分用web页面（损害了web的可定制性），比如采用多个webview（内存太大）等，最后引出他们最终的解决方案——blendui。blendui简单说就是<strong>在webview的上层加了一个native层（这里有个背景就是他们的web都是运行在百度自己的APP内的），使得webview只是成为一个js引擎，在webview与native之间建立了一个组件的映射，用js创建的组件可通过bridge成为原生的native控件，所以最终用户体验到的是原生APP的感觉</strong>。在bridge这里他们内部实现了个cssnode的东西，目的是让css的能力能够直接转换成原生的表现。除此之外他们还提供了一个类HTML的模板，方便开发者组织控件的排列。提问环节我一直举手但没被选中，幸好有位被选中的童鞋问了个相似的问题，就是支不支持像canvas，文件上传等元素，答案是不支持，需要自己去扩展。演讲者逻辑很清晰，基本上讲得大家都比较明白，我认为这套blendui是比较高级的开发hybird app的方式，但因为牺牲了web页面的通用性，只能在自己的app里使用，所以暂时不适用于我司的各种嵌入app的h5页面的情况。</p>
-<p>第二场我仍然在白马山庄，听来自腾讯的工程师分享他们Ques组件的相关情况，分享者采用边写代码边介绍的方式，更多地是介绍怎么使用他们自己开发的这套mvvm框架，可能由于时间关系分享者演示得比较快，并且对设计原理分享不是太多，有些方面也没搞太明白，但对他们组件的基于HTML的组合和继承的方式感觉比较新颖，对我现在做的组件化工作也许有借鉴意义，希望后续能找机会继续交流。</p>
-<p>上午听完两场后到阿里的食堂吃饭，恩，BAT就差百度的食堂没吃过了，哈哈。下午第一场在报告厅听了来自阿里的kissy之父的分享，当然他现在不搞kissy了，在蚂蚁金服做了个基于React的前端框架，目标是帮助一大批后端工程师能够在缺少前端工程师的情况下方便快速地搭建起项目。由于本人对React接触不多（恩，该多学习了），更多关注了他们组件化的方式，总结起来有这么些点：</p>
-<ul>
-<li><strong>每个组件是独立完整的单元，即包括了结构，逻辑，样式和数据的获取</strong>，这令我想到华为WPF框架的builder(⊙o⊙)…</li>
-<li>这些开箱即用的组件产生了请求量过多的问题（因为每个组件负责自己的数据请求，这又使我想起了WPF，之前同样遇到过这样的问题），给出的解决方式是<strong>relay和falcor</strong>，最终采用的是falcor的方式，这两东西我都没听过，看来要恶补一番了，不然我这样的大叔要被时代抛弃了。</li>
-<li>通用与定制的问题，<strong>他们有一套基础的通用的组件，在此基础上有一套定制的组件</strong>，可以完成快速的开发，因为蚂蚁金服有自己统一的设计规范，所以这套定制组件可在各系统中使用。这个思路跟我的是一致的，越是通用使用必然越加繁琐，所以组件也需要分级，特别对于有统一设计规范的后台系统，在通用组件基础上再封装业务级别的组件是有必要的，起码目前我们也是这样做的。</li>
-</ul>
-<p>下午第二场我跑去听了阿里工程师分享关于TV前端开发的一些经验，因为之前没听说过TV前端，所以很有兴趣去了解下。主要就是讲了随着各种盒子的兴起，TV端正成为一个热门的开发领域，这自然不能有web的缺席（web这是到处都要去插一脚的意思吗）。分享者主要分享了TV端开发的一个难点问题的解决，就是焦点问题，因为TV更多地是用遥控器对界面进行控制（通常是上下左右这样控制），不同于手机或PC可直接点击到目标区域，所以寻找焦点区域成为一个需要专门解决的问题。这里分享了两个焦点寻找算法：</p>
+<blockquote>
+<p>需要注意的是，上面试验中加的input都必须有<code>name</code>属性，不然会被表单自动忽略。</p>
+</blockquote>
+<h3 id="u89E3_u51B3"><a href="#u89E3_u51B3" class="headerlink" title="解决"></a>解决</h3><p>通过上面的分析，我们起码能够得到两种比较简单的解决方案来处理前面提到的问题：</p>
 <ol>
-<li><strong>十字查找法</strong>：在现聚焦区域的上下左右通道内查找落在通道内的区域，作为下一个焦点区域，这种方法可能产生焦点盲区，就是在这个十字通道内可能找不到任何的其他区域。</li>
-<li><strong>相邻区域法</strong>：为了解决盲区问题，以现聚焦区域为中心分为东南西北四区域，在这区域内查找距离最近的区域作为下一个焦点区域。</li>
+<li><strong>把密码项移到表单的一个输入项位置。</strong></li>
+<li><strong>在表单里多放一个密码输入项。</strong><br>很明显，第一种方案通常不太可行，谁见过在注册表单里首先填入密码项的！那么最佳方案就是第二种了，在表单里加多一个密码项，有两个密码项的表单会让浏览器“凌乱”，自动填充就不会发生了。比如，我的做法就是在表单最前面加入一个隐藏的密码输入项：<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"password"</span> <span class="attribute">style</span>=<span class="value">"display:none;"</span> <span class="attribute">name</span>=<span class="value">"hack"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<p>这两个算法还不能解决所有问题，这其中包括焦点漂移的问题，就是比如经过一次向上和一次向下按键操作后可能回不到原来的区域，因为向上操作后聚焦的区域按上面两个算法可能计算出来的不是原来的初始区域。所以最终还采用了缓存上一次操作结果的方式。这样整个焦点查找是按这样的优先级进行的：<br><strong>缓存的上一次结果 &gt; 十字查找法 &gt; 相邻区域法</strong></p>
-<p>最后一场是我跑回报告厅，听了最为有趣的分享，是阿里可视化团队的专家宁朗介绍DavaV引擎在数据可视化方面的应用情况，整个演讲的PPT非常华丽震撼，可以说阿里的数据可视化估计是国内做得最好的。宁朗大大首先给大家看了双十一时阿里下单量的一个飞线图，还有北京城物流的运送图，都是炫得不要不要的，立刻就把大伙镇住了。接着讲了下<strong>在大数据时代可视化的一些意义，就是让普通人可以对海量枯燥的数据有更直观的认识进而讲出自己的理解</strong>，这也是我相当认同的事情，并且我认为在晦涩难懂的一系列金融数据面前，数据可视化的作用更加大。毕竟就像宁朗自己说的，目前他们的数据可视化最终似乎都能归结到人口密度图上去，但我觉得如果应用到金融领域，就跟人口密度没有太多关系了，是真的可以对投资行为有更直观的叙述，这也是我作为互联网金融从业者非常想做的事情。回归到技术方面，<strong>DavaV可视化引擎混用了SVG，Canvas，WebGL这三种技术，也有用three.js</strong>。我之前对Canvas比较熟悉，我司目前网站的各种股票行情图就是用Canvas画的，但也还不到精通的地步，对SVG和WebGL就更陌生了，这更加让我意识到还有相当长的路要走。当然，不止是技术，整个数据可视化目前已是个很大的学科，系统性的学习是相当必要的，希望我能尽快赶上。</p>
-<p>来参加这次D2大会，我感觉还是很值的，学到不少东西，也认清自己跟别人的差距，我只能说，努力吧，大叔！</p>
+<p>这样我们的注册表单就正常了：<br><img src="/images/20160101/nregister.png" alt="正常的注册表单" title="正常的注册表单"><br>以上的情况在FF上面大概试了下也是成立的，在IE各版本下就没有试了，:)</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -138,13 +134,13 @@ nodejs的热度持续升温，js成为后端主流开发语言可以说已是不
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/记录/">记录</a>
+  <a class="article-category-link" href="/categories/form/">form</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/D2/">D2</a><a href="/tags/DataV/">DataV</a><a href="/tags/TV端/">TV端</a><a href="/tags/数据可视化/">数据可视化</a><a href="/tags/组件化/">组件化</a>
+  <span></span> <a href="/tags/chrome/">chrome</a><a href="/tags/form/">form</a><a href="/tags/填充密码/">填充密码</a><a href="/tags/记住密码/">记住密码</a>
   </div>
 
 </div>
@@ -153,7 +149,7 @@ nodejs的热度持续升温，js成为后端主流开发语言可以说已是不
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://zdwen.com/2015/12/22/参加第10届D2前端技术大会杂记/" data-title="参加第10届D2前端技术大会杂记 | ZDJS" data-tsina="1436537551" class="share clearfix">
+	  <div data-url="http://zdwen.com/2016/01/01/关于chrome自动填充密码的问题/" data-title="关于chrome自动填充密码的问题 | ZDJS" data-tsina="1436537551" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -166,19 +162,11 @@ nodejs的热度持续升温，js成为后端主流开发语言可以说已是不
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/01/01/关于chrome自动填充密码的问题/" title="关于chrome自动填充密码的问题">
-  <strong>上一篇：</strong><br/>
-  <span>
-  关于chrome自动填充密码的问题</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/12/13/关于自由/"  title="关于自由">
+<a href="/2015/12/22/参加第10届D2前端技术大会杂记/"  title="参加第10届D2前端技术大会杂记">
  <strong>下一篇：</strong><br/> 
- <span>关于自由
+ <span>参加第10届D2前端技术大会杂记
 </span>
 </a>
 </div>
@@ -187,12 +175,19 @@ nodejs的热度持续升温，js成为后端主流开发语言可以说已是不
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2015/12/22/参加第10届D2前端技术大会杂记/" data-title="参加第10届D2前端技术大会杂记" data-url="http://zdwen.com/2015/12/22/参加第10届D2前端技术大会杂记/"></div>
+	<div class="ds-thread" data-thread-key="2016/01/01/关于chrome自动填充密码的问题/" data-title="关于chrome自动填充密码的问题" data-url="http://zdwen.com/2016/01/01/关于chrome自动填充密码的问题/"></div>
 </section>
 
 
 </div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u95EE_u9898"><span class="toc-number">1.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5206_u6790"><span class="toc-number">2.</span> <span class="toc-text">分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u89E3_u51B3"><span class="toc-number">3.</span> <span class="toc-text">解决</span></a></li></ol>
+ 
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
@@ -414,6 +409,8 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
